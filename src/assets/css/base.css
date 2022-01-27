@@ -1,0 +1,22 @@
+html,
+body {
+  font-family: 'Microsoft YaHei';
+  color: #333;
+  background: #fff;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+#app,
+.app,
+html,
+body {
+  height: 100%;
+}
