@@ -4,7 +4,7 @@
       <template #header>
         <h2>{{ searchConfig.title ?? '蒲公英的约定' }}</h2>
       </template>
-      <template v-if="!searchConfig.form?.formItems === undefined" #footer>
+      <template v-if="searchConfig.form?.formItems !== undefined" #footer>
         <div class="btns">
           <el-button size="large" @click="resetClick">
             <el-icon><refresh /></el-icon>

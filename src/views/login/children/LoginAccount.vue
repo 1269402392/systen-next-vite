@@ -69,4 +69,7 @@ export default defineComponent({
     padding: 18px 11px;
   }
 }
+:deep(.el-input__suffix) {
+  top: 13px;
+}
 </style>
