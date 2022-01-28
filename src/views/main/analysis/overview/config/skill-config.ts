@@ -56,7 +56,7 @@ export const skillList: ISkillType[] = [
   },
   {
     label: '工具库',
-    value: 'Lodash.js + Dayjs + CountUp.js + Mitt.js',
+    value: 'Lodash.js + Dayjs + CountUp.js + Mitt.js + Mock.js',
     link: 'https://www.lodashjs.com/',
     iconCpn: 'Food'
   },
