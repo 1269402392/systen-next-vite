@@ -27,7 +27,7 @@ export function updateData(url: string, data?: any) {
     data
   })
 }
-// 处理get请求
+// 处理get请求 dispose - 安排
 export function disposeGetRequest(url: string, data?: any) {
   return lyRequest.get<IDataType>({ url, data })
 }

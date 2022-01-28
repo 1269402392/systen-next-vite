@@ -13,7 +13,7 @@
           <template #label>
             <el-icon><iphone /></el-icon>手机号登陆
           </template>
-          <login-phone />
+          <login-phone ref="phoneRef" @handleCode="handleCode" />
         </el-tab-pane>
       </el-tabs>
       <div :class="['util-box', tabsValue === 'account' ? '' : 'util-active']">
@@ -49,21 +49,35 @@ export default defineComponent({
     const store = useStore()
 
     const checked = ref(true)
-    const tabsValue = ref('account')
+    const tabsValue = ref('phone')
 
     const accountRef = ref<InstanceType<typeof LoginAccount>>()
+    const phoneRef = ref<InstanceType<typeof LoginPhone>>()
     const submit = () => {
-      if (checked.value) {
-        cache.setCache('name', accountRef.value?.form.name)
-        cache.setCache('password', accountRef.value?.form.password)
+      if (tabsValue.value === 'account') {
+        if (checked.value) {
+          cache.setCache('name', accountRef.value?.form.name)
+          cache.setCache('password', accountRef.value?.form.password)
+        }
+        store.dispatch('login/loginAction', accountRef.value?.form)
+      } else {
+        phoneRef.value?.submit()
       }
-      store.dispatch('login/loginAction', accountRef.value?.form)
+    }
+    // 处理验证码通过的登陆 -> 使用的还是账号登陆
+    const handleCode = () => {
+      store.dispatch('login/loginAction', {
+        name: 'coderwhy',
+        password: '123456'
+      })
     }
     return {
       checked,
       tabsValue,
       accountRef,
-      submit
+      phoneRef,
+      submit,
+      handleCode
     }
   }
 })

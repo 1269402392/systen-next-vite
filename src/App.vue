@@ -2,7 +2,7 @@
   <el-config-provider :locale="locale">
     <div class="app">
       <router-view v-slot="props">
-        <keep-alive>
+        <keep-alive exclude="Login">
           <component :is="props.Component"></component>
         </keep-alive>
       </router-view>

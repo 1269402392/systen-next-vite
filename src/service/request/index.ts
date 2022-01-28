@@ -1,9 +1,11 @@
 import axios, { AxiosInstance } from 'axios'
-import { ElLoading } from 'element-plus'
-import 'element-plus/theme-chalk/el-loading.css'
+// import { ElLoading } from 'element-plus'
+// import 'element-plus/theme-chalk/el-loading.css'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 import { LYRequestConfig, LYRequestHook } from './type'
 
-const DEFAULT_LOADING = false
+const DEFAULT_LOADING = true
 
 class LYRequest {
   instance: AxiosInstance
@@ -26,20 +28,21 @@ class LYRequest {
 
     this.instance.interceptors.request.use((config) => {
       if (this.isShowLoading) {
-        this.loadingInstance = ElLoading.service({
-          text: 'Loading...'
-        })
+        // this.loadingInstance = ElLoading.service({
+        //   text: 'Loading...'
+        // })
+        NProgress.start()
       }
       return config
     })
     this.instance.interceptors.response.use((result) => {
-      this.loadingInstance?.close()
+      // this.loadingInstance?.close()
+      NProgress.done()
       return result.data
     })
   }
 
   request<T>(config: LYRequestConfig<T>): Promise<T> {
-    console.log()
     if (config.isShowLoading === false) {
       this.isShowLoading = config.isShowLoading
     }
@@ -53,7 +56,8 @@ class LYRequest {
         })
         .catch((error) => {
           reject(error)
-          this.loadingInstance.close()
+          // this.loadingInstance.close()
+          NProgress.done()
           this.isShowLoading = DEFAULT_LOADING
         })
     })

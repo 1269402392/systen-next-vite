@@ -6,6 +6,7 @@ import { getUserInfo, getUserMenus, loginRequest } from '../../service/login'
 import cache from '../../utils/cache'
 import router from '../../router'
 import { mapMenusToRoutes } from '../../utils/map-menus'
+import { showMessage } from '@/utils/show-message'
 
 const loginModule: Module<ILoginState, IRootData> = {
   namespaced: true,
@@ -44,6 +45,7 @@ const loginModule: Module<ILoginState, IRootData> = {
       const { data: menuList } = await getUserMenus(userInfo.role.id)
       commit('saveUserMenus', menuList)
       cache.setCache('userMenus', menuList)
+      if (data.token) showMessage(0, '使用过程中有BUG不要慌，忽略就好了~')
 
       await router.push('/main')
     },

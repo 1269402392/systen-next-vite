@@ -8,3 +8,5 @@ declare module '*.vue' {
 }
 declare module 'lodash'
 declare module '@wangeditor/editor-for-vue'
+declare module 'mockjs'
+declare module 'nprogress'

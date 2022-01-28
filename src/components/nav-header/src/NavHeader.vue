@@ -20,7 +20,7 @@
     <el-dropdown class="right">
       <div class="user-info">
         <el-avatar :size="32" src="/src/assets/images/head.jpg"></el-avatar>
-        <span>七里香</span>
+        <span style="font-size: 14px">杨枝甘露</span>
         <el-icon class="el-icon--right">
           <arrow-down />
         </el-icon>
@@ -72,7 +72,7 @@ export default defineComponent({
       cache.deleteCache('token')
       cache.deleteCache('userInfo')
       emitter.emit('login-menu')
-      router.replace('/login')
+      router.push('/login')
     }
     return {
       isSkewFlag,
