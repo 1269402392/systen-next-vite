@@ -45,6 +45,7 @@ import { pathToMenus } from '@/utils/map-menus'
 import { emitter } from '@/mitt'
 import { firstPath } from '@/utils/map-menus'
 
+import router from '@/router'
 export default defineComponent({
   name: 'NavMenu',
   props: {
@@ -55,6 +56,7 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute()
+
     const icons = ['Histogram', 'Tools', 'GoodsFilled', 'VideoCameraFilled']
     const store = useStore()
     const menus = computed(() => store.state.login.userMenus)
