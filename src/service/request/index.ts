@@ -1,3 +1,4 @@
+import cache from '@/utils/cache'
 import axios, { AxiosInstance } from 'axios'
 // import { ElLoading } from 'element-plus'
 // import 'element-plus/theme-chalk/el-loading.css'
@@ -27,6 +28,7 @@ class LYRequest {
     )
 
     this.instance.interceptors.request.use((config) => {
+      config.headers!.Authorization = cache.getCache('token')
       if (this.isShowLoading) {
         // this.loadingInstance = ElLoading.service({
         //   text: 'Loading...'

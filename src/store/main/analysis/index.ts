@@ -38,9 +38,7 @@ const analysisModule: Module<IAnalysisState, IRootData> = {
       const { data: pieData } = await runGetRequest('/goods/category/count')
       commit('handlePieData', pieData)
       // handleGetRequest -> 自定义其他接口请求
-      const lineData = await handleGetRequest(
-        'http://47.116.26.11:8096/api/trend'
-      )
+      const lineData = await handleGetRequest('/api/trend')
       commit('handleLineData', lineData)
       const { data: addressData } = await runGetRequest('/goods/address/sale')
       commit('handleAddressData', addressData)

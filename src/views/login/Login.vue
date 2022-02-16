@@ -49,7 +49,7 @@ export default defineComponent({
     const store = useStore()
 
     const checked = ref(true)
-    const tabsValue = ref('phone')
+    const tabsValue = ref('account')
 
     const accountRef = ref<InstanceType<typeof LoginAccount>>()
     const phoneRef = ref<InstanceType<typeof LoginPhone>>()
