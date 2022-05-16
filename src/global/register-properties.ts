@@ -93,8 +93,9 @@ export function registerIcons(app: App) {
 import PageSearch from '@/components/page-search'
 import PageContent from '@/components/page-content'
 import PageDialog from '@/components/page-dialog'
+import LyCard from '@/components/ly-card'
 
-const cpns = [PageSearch, PageContent, PageDialog]
+const cpns = [LyCard, PageSearch, PageContent, PageDialog]
 
 export function registerComponent(app: App) {
   for (const cpn of cpns) {

@@ -4,6 +4,7 @@ import { IRootData, IStoreType } from './type'
 import login from './login'
 import system from '@/store/main/system'
 import analysis from '@/store/main/analysis'
+import cache from '@/utils/cache'
 const store: Store<IRootData> = createStore({
   state() {
     return {
@@ -25,6 +26,7 @@ const store: Store<IRootData> = createStore({
   },
   actions: {
     async getInitiationAction({ commit }) {
+      if (!cache.getCache('token')) return
       const { data: departmentList } = await getDataList('/department/list')
       commit('handleDepartmentList', departmentList.list)
       const { data: roleList } = await getDataList('/role/list')

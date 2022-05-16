@@ -40,7 +40,6 @@ import { ITableItem } from '@/components/ly-table/type'
 
 export default defineComponent({
   name: 'LyTable',
-
   props: {
     tableData: {
       type: Array,

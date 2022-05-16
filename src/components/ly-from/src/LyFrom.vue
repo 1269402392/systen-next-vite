@@ -131,4 +131,7 @@ export default defineComponent({
 :deep(.el-date-editor) {
   width: 100%;
 }
+:deep(.el-range-editor.el-input__inner) {
+  width: 100%;
+}
 </style>
